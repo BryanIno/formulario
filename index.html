@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <main>
+        <h1>FORMULARIO DE VOTACIÓN</h1>
+        <form action="./formulario/guardarDatos.php" method="POST"  onsubmit="return validarFormulario()" >
+            <label for="nombre" >
+                Nombre
+                <input type="text" name="nombre" id="nombre" placeholder="Bryan Inostroza">
+            </label>
+            <br>
+            <label for="alias">
+                Alias
+                <input type="text" name="alias" id="alias" placeholder="BryanIno">
+            </label>
+            <br>
+            <label for="rut">
+                Rut
+                <input type="text" name="rut" id="rut" placeholder="19457995-3">
+            </label>
+            <br>
+            <label for="email">
+                Email
+                <input type="email" name="email" id="email" placeholder="Bryan@gmail.com">
+            </label>
+            <br>
+            <label for="region">
+               Region
+                <select name="region" id="region">
+                    <option value=""></option>
+               </select>
+            </label>
+            <br>
+            <label for="comuna">
+                Comuna
+                <select name="comuna" id="comuna"></select>
+            </label>
+            <br>
+            <label for="candidato">
+                Candidato
+                <select name="candidato" id="candidato"></select>
+            </label>
+            <br>
+            <label for="nosotros">
+                Como se enteró de Nosotros:
+               
+                <input type="checkbox" name="nosotros[]" value="Web"> Web
+                <input type="checkbox" name="nosotros[]" value="TV"> TV
+                <input type="checkbox" name="nosotros[]" value="Redes Sociales"> Redes Sociales
+                <input type="checkbox" name="nosotros[]" value="Amigo"> Amigo
+               
+            </label>
+            <br>
+            <button type="submit"> Votar </button>
+        </form>
+    </main>
+    <script src="app.js"></script>
+    <script>
+        
+        function validarFormulario() {
+            //nombre
+            const nombreInput = document.getElementById('nombre');
+            if (nombreInput.value.trim() === '') {
+                alert('El nombre y apellido no deben quedar en blanco.');
+                return false;
+            }
+
+            //alias
+            const aliasInput = document.getElementById('alias');
+            if (aliasInput.value.length < 5 || !/^[A-Za-z0-9]+$/.test(aliasInput.value)) {
+                alert('El alias debe tener al menos 5 caracteres y contener solo letras y números.');
+                return false;
+            }
+
+            // rut
+            const rutInput = document.getElementById('rut');
+            if (!/^\d{7,8}-[0-9kK]$/.test(rutInput.value)) {
+                alert('El RUT no tiene un formato válido. Ejemplo: 19897995-3');
+                return false;
+            }
+
+            // email
+            const emailInput = document.getElementById('email');
+            if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(emailInput.value)) {
+                alert('El correo electrónico no tiene un formato válido.');
+                return false;
+            }
+            return true; 
+             // region
+            const regionSelect = document.getElementById('region');
+            if (regionSelect.value === '') {
+                alert('Debe seleccionar una región.');
+                return false;
+            }
+        
+            // comuna
+            const comunaSelect = document.getElementById('comuna');
+            if (comunaSelect.value === '') {
+                alert('Debe seleccionar una comuna.');
+                return false;
+            }
+            // candidato
+            const candidatoSelect = document.getElementById('candidato');
+            if (candidatoSelect.value === '') {
+                alert('Debe seleccionar un candidato.');
+                return false;
+            }
+            return true;
+        }
+           
+    </script>
+</body>
+</html>
