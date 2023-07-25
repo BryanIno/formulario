@@ -16,7 +16,12 @@ Importe el archivo SQL ubicado en formulario/db/votos.sql en la base de datos re
 
 4. Actualizar la configuración de conexión a la base de datos:
 Abra el archivo formulario/conexion/conexion.php con un editor de texto.
-Modifique los valores de $db_host, $db_name, $db_user y $db_password para que coincidan con los de su servidor MySQL local.
+Modifique los valores de 
+$host = "127.0.0.1"; 
+$puerto = "3307";
+$usuario = "root"; 
+$contrasena = "tu_contraseña_";
+$base_de_datos = "db_ejercicio";  para que coincidan con los de su servidor MySQL local.
 
 5. Configurar el servidor web:
 Asegúrese de que su servidor web local esté en funcionamiento y se esté ejecutando PHP correctamente.
