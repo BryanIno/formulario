@@ -8,7 +8,9 @@
 <body>
     <main>
         <h1>FORMULARIO DE VOTACIÓN</h1>
-        <form action="./formulario/guardarDatos.php" method="POST"  onsubmit="return validarFormulario()" >
+       
+        <form action="./formulario/guardarDatos.php" method="POST"  onsubmit="return validarFormulario()" id="form" >
+            <div id="error-container"></div>
             <label for="nombre" >
                 Nombre
                 <input type="text" name="nombre" id="nombre" placeholder="Bryan Inostroza">
