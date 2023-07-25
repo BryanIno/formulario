@@ -2,7 +2,7 @@ Sistema de Votación - Guía de Instalación
 Este es un sistema de votación web que permite a los usuarios votar por candidatos de diferentes regiones y comunas. A continuación, se detallan los pasos para instalar y configurar el sistema en su entorno local.
 
 Requisitos Previos
-Servidor web local (por ejemplo, XAMPP, WAMP, LAMP, MAMP) con soporte para PHP 8.1.12 y MySQL.
+Servidor web local (por ejemplo, XAMPP, WAMP, LAMP, MAMP, LARAGON) con soporte para la verion utilizada de php: PHP 8.1.12 y MySQL.
 Navegador web moderno (Chrome, Firefox, Edge, etc.).
 
 Pasos de Instalación
