@@ -1,4 +1,3 @@
-//manipulacion de datos
 document.addEventListener('DOMContentLoaded', function() {
     const regionesSelect = document.getElementById('region');
     const comunasSelect = document.getElementById('comuna');
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     regionesSelect.addEventListener('change', function() {
         const selectedRegionId = this.value; // Obtener el idRegion seleccionado
-        // console.log(selectedRegionId);
         // Filtrar las comunas correspondientes al idRegion seleccionado
         const comunasFiltradas = data.comunas.filter(comuna => comuna.idRegion == selectedRegionId);
 
@@ -59,8 +57,36 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => console.error('Error:', error));
-});
 
+        const form = document.getElementById('form'); // Obtener el formulario por su ID
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault(); // Detener el envío del formulario para realizar las validaciones
+        
+            if (!validarFormulario()) {
+                // Si hay errores, mostrar el mensaje en el div con id="error-container"
+                const errorContainer = document.getElementById('error-container');
+        
+                // Obtener el mensaje de error desde el servidor
+                const response = await fetch('./formulario/guardarDatos.php', {
+                    method: 'POST',
+                    body: new FormData(form),
+                });
+                const responseData = await response.json();
+        
+                if (responseData.error) {
+                    // Mostrar el mensaje de error en una alerta
+                    alert(responseData.error);
+                } else {
+                    // Si no hay errores, enviar el formulario
+                    form.submit();
+                }
+            } else {
+                // Si no hay errores, enviar el formulario
+                form.submit();
+            }
+        });
+    });
 //Validaciones
 
 function validarFormulario() {
