@@ -5,14 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let data; // Declarar la variable data
 
     regionesSelect.addEventListener('change', function() {
-        const selectedRegionId = this.value; // Obtener el idRegion seleccionado
-        // Filtrar las comunas correspondientes al idRegion seleccionado
+         // Filtrar las comunas correspondientes al idRegion seleccionado
+        const selectedRegionId = this.value;
         const comunasFiltradas = data.comunas.filter(comuna => comuna.idRegion == selectedRegionId);
-
-        // Limpiar el select de comunas antes de llenarlo nuevamente
-        comunasSelect.innerHTML = '<option value="">Seleccione una comuna</option>';
-
+        
         // Llenar el select de comunas con las opciones filtradas
+        comunasSelect.innerHTML = '<option value="">Seleccione una comuna</option>';
         comunasFiltradas.forEach(comuna => {
             const option = document.createElement('option');
             option.value = comuna.idComunas;
@@ -27,13 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
     comunasSelect.addEventListener('change', function() {
         const selectedComunaId = this.value; // Obtener el idComuna seleccionado
 
-        // Filtrar los candidatos correspondientes al idComuna seleccionado
+        // Filtrar los candidatos
         const candidatosFiltrados = data.candidatos.filter(candidato => candidato.idComuna == selectedComunaId);
-
-        // Limpiar el select de candidatos antes de llenarlo nuevamente
         candidatosSelect.innerHTML = '<option value="">Seleccione un candidato</option>';
 
-        // Llenar el select de candidatos con las opciones filtradas
+        // Llenar el select de candidatos
         candidatosFiltrados.forEach(candidato => {
             const option = document.createElement('option');
             option.value = candidato.idCandidato;
@@ -42,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Obtener los datos desde obtener_datos.php usando AJAX
+    // Obtener los datos desde obtener_datos.php 
     fetch('./formulario/obtenerDatos.php')
         .then(response => response.json())
         .then(result => {
