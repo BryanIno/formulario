@@ -2,7 +2,7 @@
 $host = "127.0.0.1"; 
 $puerto = "3307";
 $usuario = "root"; 
-$contrasena = "119871913";
+$contrasena = "su_contraseña";
 $base_de_datos = "db_ejercicio"; 
 
 try {

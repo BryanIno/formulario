@@ -1,3 +1,4 @@
+//manipulacion de datos
 document.addEventListener('DOMContentLoaded', function() {
     const regionesSelect = document.getElementById('region');
     const comunasSelect = document.getElementById('comuna');
@@ -58,9 +59,59 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => console.error('Error:', error));
-
-    
 });
+
+//Validaciones
+
+function validarFormulario() {
+    //nombre
+    const nombreInput = document.getElementById('nombre');
+    if (nombreInput.value.trim() === '') {
+        alert('El nombre y apellido no deben quedar en blanco.');
+        return false;
+    }
+
+    //alias
+    const aliasInput = document.getElementById('alias');
+    if (aliasInput.value.length < 5 || !/^[A-Za-z0-9]+$/.test(aliasInput.value)) {
+        alert('El alias debe tener al menos 5 caracteres y contener solo letras y números.');
+        return false;
+    }
+
+    // rut
+    const rutInput = document.getElementById('rut');
+    if (!/^\d{7,8}-[0-9kK]$/.test(rutInput.value)) {
+        alert('El RUT no tiene un formato válido. Ejemplo: 19897995-3');
+        return false;
+    }
+
+    // email
+    const emailInput = document.getElementById('email');
+    if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(emailInput.value)) {
+        alert('El correo electrónico no tiene un formato válido.');
+        return false;
+    }
+     // region
+    const regionSelect = document.getElementById('region');
+    if (regionSelect.value === '') {
+        alert('Debe seleccionar una región.');
+        return false;
+    }
+
+    // comuna
+    const comunaSelect = document.getElementById('comuna');
+    if (comunaSelect.value === '') {
+        alert('Debe seleccionar una comuna.');
+        return false;
+    }
+    // candidato
+    const candidatoSelect = document.getElementById('candidato');
+    if (candidatoSelect.value === '') {
+        alert('Debe seleccionar un candidato.');
+        return false;
+    }
+    return true;
+}
  
   
   

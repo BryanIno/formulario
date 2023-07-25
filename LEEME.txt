@@ -1,0 +1,35 @@
+Sistema de Votación - Guía de Instalación
+Este es un sistema de votación web que permite a los usuarios votar por candidatos de diferentes regiones y comunas. A continuación, se detallan los pasos para instalar y configurar el sistema en su entorno local.
+
+Requisitos Previos
+Servidor web local (por ejemplo, XAMPP, WAMP, LAMP, MAMP) con soporte para PHP 8.1.12 y MySQL.
+Navegador web moderno (Chrome, Firefox, Edge, etc.).
+
+Pasos de Instalación
+
+1. Clonar el repositorio o descargar el código fuente desde GitHub.
+2. Colocar el directorio del sistema en la carpeta de su servidor web local. Por ejemplo, en XAMPP, puede colocar el directorio dentro de la carpeta htdocs.
+
+3. Importar la base de datos:
+Cree una base de datos en su servidor MySQL local. Puede utilizar la interfaz de administración de su elección (phpMyAdmin, MySQL Workbench, etc.).
+Importe el archivo SQL ubicado en formulario/db/votos.sql en la base de datos recién creada. Esto creará la tabla necesaria para almacenar los datos de votación.
+
+4. Actualizar la configuración de conexión a la base de datos:
+Abra el archivo formulario/conexion/conexion.php con un editor de texto.
+Modifique los valores de $db_host, $db_name, $db_user y $db_password para que coincidan con los de su servidor MySQL local.
+
+5. Configurar el servidor web:
+Asegúrese de que su servidor web local esté en funcionamiento y se esté ejecutando PHP correctamente.
+
+6. Acceder al sistema:
+Abra su navegador web e ingrese la URL del sistema (por ejemplo, http://localhost/sistema-de-votacion).
+Debería ver el formulario de votación en la página web.
+
+
+Uso del Sistema
+Complete el formulario de votación proporcionando la información requerida (nombre, alias, RUT, email, región, comuna, candidato y cómo se enteró de nosotros).
+Haga clic en el botón "Votar" para enviar el formulario.
+Si algún campo no cumple con los requisitos de validación, se mostrará una alerta con el mensaje correspondiente.
+Si todos los campos están completados correctamente, los datos se guardarán en la base de datos y se redirigirá a una página de éxito o agradecimiento.
+¡Listo! Ahora debería tener el sistema de votación funcionando en su entorno local.
+
